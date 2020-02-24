@@ -99,7 +99,17 @@ cache_poison () {
 
     time_for_index=`date +%s`
 
-    curl -iks --speed-time 16 --speed-limit 1 ${input}?${time_for_index}=1 -H "x-host: cachepoisonindex${time_for_index}" > x_original_url_select
+    if [ `echo $input | grep transparency.hackxor.net` != "" ]
+
+    then
+
+        curl -iks --speed-time 16 --speed-limit 1 ${input}?${time_for_index}=1 -H "Cookie: _globalinstancekey=1661471/1/lZ_vG2bSQ6mbTqCoqpoDiA==" -H "x-host: cachepoisonindex${time_for_index}" > x_original_url_select
+
+    else
+
+        curl -iks --speed-time 16 --speed-limit 1 ${input}?${time_for_index}=1 -H "x-host: cachepoisonindex${time_for_index}" > x_original_url_select
+
+    fi
 
     if_posion_index=`grep "cachepoisonindex${time_for_index}" x_original_url_select`
 
