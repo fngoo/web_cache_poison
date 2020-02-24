@@ -215,17 +215,11 @@ cache_poison () {
 
             ## alive_alert
 
-            for single in '|      |' '|#     |' '|##    |' '|###   |' '|####  |' '|##### |' '|######|'
+            tput sc
 
-            do
+            echo -ne "\033[31m      ${line}                                       \033[0m"
 
-                tput sc
-
-                echo -ne "\033[31m      ${single}                                       \033[0m"
-
-                tput rc
-
-            done
+            tput rc
 
         done
 
