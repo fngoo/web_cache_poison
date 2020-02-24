@@ -191,6 +191,8 @@ cache_poison () {
 
         tput rc
 
+        num_count=1; num_headers=`cat headers_for_cache.txt | wc -l`
+
         for line in `cat headers_for_cache.txt`
 
         do
@@ -215,9 +217,11 @@ cache_poison () {
 
             tput sc
 
-            echo -ne "\033[31m      ${line}                                       \033[0m"
+            echo -ne "\033[31m      ${line}    $num_count/$num_headers                                       \033[0m"
 
             tput rc
+
+            num_count=$(($num_count+1))
 
         done
 
