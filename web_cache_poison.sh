@@ -183,7 +183,7 @@ cache_poison () {
 
     then
 
-        ## search_reflection    mass    sleep_0.16
+        ## search_reflection    mass
 
         tput sc
 
@@ -198,8 +198,6 @@ cache_poison () {
             time_for_index=`date +%s`
 
             curl -iks --speed-time 16 --speed-limit 1 ${input}?${time_for_index}=1 -H "$line: cachepoisonindex${time_for_index}" > cache_out.txt
-
-            sleep 0.16
 
             if_posion_index=`grep "cachepoisonindex${time_for_index}" cache_out.txt`
 
