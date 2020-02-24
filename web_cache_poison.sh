@@ -197,7 +197,7 @@ cache_poison () {
 
             ## alive_alert
 
-            for single in '      <-      ' '      <-      ' '        ->      ' '        ->      '
+            for single in '      <-      ' '      <-      ' '        ->      ' '        ->      ' '                                             '
 
             do
 
