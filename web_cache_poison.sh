@@ -175,6 +175,12 @@ cache_poison () {
 
         ## search_reflection    mass    sleep_0.25
 
+        tput sc
+
+        echo -ne "\033[31m      start wordlist                                       \033[0m"
+
+        tput rc
+
         for line in `cat headers_for_cache.txt`
 
         do
