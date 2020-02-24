@@ -17,6 +17,8 @@ cache_poison () {
 
     sleep 3
 
+    time_for_index=`date +%s`
+
     curl -iks --speed-time 16 --speed-limit 1 ${input}?${time_for_index}=1 > x_original_url_compare
 
     wcc_num_origin=`cat x_original_url_compare | wc -l`; origin_head=`cat x_original_url_compare | head -1`
