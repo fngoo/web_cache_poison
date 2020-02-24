@@ -11,13 +11,13 @@ cache_poison () {
 
     time_for_index=`date +%s`
 
-    curl -iks --speed-time 16 --speed-limit 1 ${input}?${time_for_index}=1 -H "Cookie: _globalinstancekey=1661471/1/lZ_vG2bSQ6mbTqCoqpoDiA==" -H "x-original-url: ${time_for_index}" > x_original_url_select
+    curl -iks --speed-time 16 --speed-limit 1 ${input}?${time_for_index}=1 -H "x-original-url: ${time_for_index}" > x_original_url_select
 
     wcc_num_x=`cat x_original_url_select | wc -l`; x_head=`cat x_original_url_select | head -1`
 
     sleep 3
 
-    curl -iks --speed-time 16 --speed-limit 1 ${input}?${time_for_index}=1 -H "Cookie: _globalinstancekey=1661471/1/lZ_vG2bSQ6mbTqCoqpoDiA==" > x_original_url_compare
+    curl -iks --speed-time 16 --speed-limit 1 ${input}?${time_for_index}=1 > x_original_url_compare
 
     wcc_num_origin=`cat x_original_url_compare | wc -l`; origin_head=`cat x_original_url_compare | head -1`
 
@@ -47,7 +47,7 @@ cache_poison () {
 
     forwarded_host_input=`echo $input | grep -oP "(?<=://)[^/\n ]*" | awk -F":" '{print $1}'`
 
-    curl -iks --speed-time 16 --speed-limit 1 ${input}?${time_for_index}=1 -H "Cookie: _globalinstancekey=1661471/1/lZ_vG2bSQ6mbTqCoqpoDiA==" -H "x-forwarded-host: ${forwarded_host_input}" -H "x-forwarded-host: cachepoisonindex${time_for_index}" > x_original_url_select
+    curl -iks --speed-time 16 --speed-limit 1 ${input}?${time_for_index}=1 -H "x-forwarded-host: ${forwarded_host_input}" -H "x-forwarded-host: cachepoisonindex${time_for_index}" > x_original_url_select
 
     if_posion_index=`grep "cachepoisonindex${time_for_index}" x_original_url_select`
 
@@ -71,7 +71,7 @@ cache_poison () {
 
     time_for_index=`date +%s`
 
-    curl -iks --speed-time 16 --speed-limit 1 ${input}?${time_for_index}=1 -H "Cookie: _globalinstancekey=1661471/1/lZ_vG2bSQ6mbTqCoqpoDiA==" -H "x-forwarded-host: ${forwarded_host_input}:12399" > x_original_url_select
+    curl -iks --speed-time 16 --speed-limit 1 ${input}?${time_for_index}=1 -H "x-forwarded-host: ${forwarded_host_input}:12399" > x_original_url_select
 
     if_posion_index=`grep "${forwarded_host_input}:12399" x_original_url_select`
 
@@ -97,7 +97,7 @@ cache_poison () {
 
     time_for_index=`date +%s`
 
-    curl -iks --speed-time 16 --speed-limit 1 ${input}?${time_for_index}=1 -H "Cookie: _globalinstancekey=1661471/1/lZ_vG2bSQ6mbTqCoqpoDiA==" -H "x-host: cachepoisonindex${time_for_index}" > x_original_url_select
+    curl -iks --speed-time 16 --speed-limit 1 ${input}?${time_for_index}=1 -H "x-host: cachepoisonindex${time_for_index}" > x_original_url_select
 
     if_posion_index=`grep "cachepoisonindex${time_for_index}" x_original_url_select`
 
@@ -123,7 +123,7 @@ cache_poison () {
 
     time_for_index=`date +%s`
 
-    curl -iks --speed-time 16 --speed-limit 1 ${input}?${time_for_index}=1 -H "Cookie: _globalinstancekey=1661471/1/lZ_vG2bSQ6mbTqCoqpoDiA==" -H "x-forwarded-server: cachepoisonindex${time_for_index}" > x_original_url_select
+    curl -iks --speed-time 16 --speed-limit 1 ${input}?${time_for_index}=1 -H "x-forwarded-server: cachepoisonindex${time_for_index}" > x_original_url_select
 
     if_posion_index=`grep "cachepoisonindex${time_for_index}" x_original_url_select`
 
@@ -149,7 +149,7 @@ cache_poison () {
 
     time_for_index=`date +%s`
 
-    curl -iks --speed-time 16 --speed-limit 1 ${input}?${time_for_index}=1 -H "Cookie: _globalinstancekey=1661471/1/lZ_vG2bSQ6mbTqCoqpoDiA==" -H "x-forwarded-server: cachepoisonindex${time_for_index}" -H "x-forwarded-scheme: nothttps" > x_original_url_select
+    curl -iks --speed-time 16 --speed-limit 1 ${input}?${time_for_index}=1 -H "x-forwarded-server: cachepoisonindex${time_for_index}" -H "x-forwarded-scheme: nothttps" > x_original_url_select
 
     if_posion_index=`grep "cachepoisonindex${time_for_index}" x_original_url_select`
 
@@ -179,7 +179,7 @@ cache_poison () {
 
             time_for_index=`date +%s`
 
-            curl -iks --speed-time 16 --speed-limit 1 ${input}?${time_for_index}=1 -H "Cookie: _globalinstancekey=1661471/1/lZ_vG2bSQ6mbTqCoqpoDiA==" -H "$line: cachepoisonindex${time_for_index}" > cache_out.txt
+            curl -iks --speed-time 16 --speed-limit 1 ${input}?${time_for_index}=1 -H "$line: cachepoisonindex${time_for_index}" > cache_out.txt
 
             sleep 0.25
 
