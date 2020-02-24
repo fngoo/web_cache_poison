@@ -187,7 +187,7 @@ cache_poison () {
 
         tput sc
 
-        echo -ne "\033[31m      start wordlist                                       \033[0m"
+        echo -ne "\033[31m      start wordlist    start wordlist                                       \033[0m"
 
         tput rc
 
@@ -217,7 +217,9 @@ cache_poison () {
 
             tput sc
 
-            echo -ne "\033[31m      ${line}    $num_count/$num_headers                                       \033[0m"
+            printf_echo=`printf "%-36s %-36s\n" ${line} $num_count/$num_headers`
+
+            echo -ne "\033[31m      ${printf_echo}                                                                                  \033[0m"
 
             tput rc
 
